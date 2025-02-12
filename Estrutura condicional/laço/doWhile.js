@@ -30,4 +30,57 @@ do{ //executa primeiro, verifica depois
         }
         idade = promopt("Qual sua idade? ")
         } while(idade >= 0)
-            //4 
+
+
+            //ex1
+            let contador = 1;
+while (contador <= 20) {
+    console.log(contador);
+    contador++;
+}
+
+//2 
+let resposta = "s";
+while (resposta === "s") {
+    resposta = prompt("Deseja continuar? (s/n)");
+}
+
+//3 
+let numeroFinal = parseInt(prompt("Digite um número até o qual você deseja ver a sequência:"));
+let numeroInicial = 1;
+
+while (numeroInicial <= numeroFinal) {
+    console.log(numeroInicial);
+    numeroInicial++;
+}
+//ex4 
+let i = 1;
+while (i <= 31) {
+    console.log(i);
+    i += 2;
+}
+
+//5 
+for (let i = 0; i < 5; i++) {
+    let numero = parseInt(prompt("Digite um número:"));
+    if (numero > 0) {
+        console.log("NÚMERO POSITIVO");
+    } else if (numero < 0) {
+        console.log("NÚMERO NEGATIVO");
+    } else {
+        console.log("O NÚMERO É ZERO");
+    }
+}
+
+
+//6 
+let continuar = "s";
+while (continuar === "s") {
+    let num1 = parseFloat(prompt("Digite o primeiro número:"));
+    let num2 = parseFloat(prompt("Digite o segundo número:"));
+    console.log("A soma dos números é: " + (num1 + num2));
+    continuar = prompt("Deseja fazer outra conta? (s/n)");
+}
+
+
+            
