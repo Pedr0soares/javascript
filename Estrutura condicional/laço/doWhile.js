@@ -30,3 +30,4 @@ do{ //executa primeiro, verifica depois
         }
         idade = promopt("Qual sua idade? ")
         } while(idade >= 0)
+            //4 
