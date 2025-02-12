@@ -1,67 +1,34 @@
-let contardor = 0
-let contador1 = 0
-while(contador != 5){
-    //verifica primeiro, executa depois
-    console.log("while:", contador)
-    contador++
-}
-do{ //executa primeiro, verifica depois
-    console.log("do while", contador)
-    contador1++
-} while (contador1 != 5)
-
-
-    //segundo Exemplo 
-    let numero = 5
-    do {
-        console.log(numero)
-        numero -=2
-    } while(contador >= 0)
-
-        //terceiro exemplo 
-        let idade = prompt("Qual sua idade? ")
-        do {
-            if (idade > 0 ){
-                console.log("Idade valida ")
-            }
-        
-        else{
-            console.log("Idade invalida")
-        }
-        idade = promopt("Qual sua idade? ")
-        } while(idade >= 0)
-
-
-            //ex1
-            let contador = 1;
-while (contador <= 20) {
+// Exemplo 1
+let contador = 1;
+do {
     console.log(contador);
     contador++;
-}
+} while (contador <= 20);
 
-//2 
+// Exemplo 2
 let resposta = "s";
-while (resposta === "s") {
+do {
     resposta = prompt("Deseja continuar? (s/n)");
-}
+} while (resposta === "s");
 
-//3 
+// Exemplo 3
 let numeroFinal = parseInt(prompt("Digite um número até o qual você deseja ver a sequência:"));
 let numeroInicial = 1;
-
-while (numeroInicial <= numeroFinal) {
+do {
     console.log(numeroInicial);
     numeroInicial++;
-}
-//ex4 
+} while (numeroInicial <= numeroFinal);
+
+// Exemplo 4
 let i = 1;
-while (i <= 31) {
+do {
     console.log(i);
     i += 2;
-}
+} while (i <= 31);
 
-//5 
-for (let i = 0; i < 5; i++) {
+// Exemplo 5
+let  = 0;
+do {
     let numero = parseInt(prompt("Digite um número:"));
     if (numero > 0) {
         console.log("NÚMERO POSITIVO");
@@ -70,17 +37,14 @@ for (let i = 0; i < 5; i++) {
     } else {
         console.log("O NÚMERO É ZERO");
     }
-}
+    i++;
+} while (i < 5);
 
-
-//6 
+// Exemplo 6
 let continuar = "s";
-while (continuar === "s") {
+do {
     let num1 = parseFloat(prompt("Digite o primeiro número:"));
     let num2 = parseFloat(prompt("Digite o segundo número:"));
     console.log("A soma dos números é: " + (num1 + num2));
     continuar = prompt("Deseja fazer outra conta? (s/n)");
-}
-
-
-            
+} while (continuar === "s");
