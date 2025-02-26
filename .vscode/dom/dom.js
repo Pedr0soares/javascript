@@ -1,50 +1,25 @@
-function mudarCorTexto() {
-    document.getElementById("texto").style.color = "red";
-}
+let imagem = document.getElementById("imagem")
 
-function mudarCorBotao() {
-    document.getElementById("botao").style.backgroundColor = "blue";
-}
+imagem.addEventListener("mouseover", function (){
+    imagem.setAttribute("src","carro2.jpg")
+})
 
-function aumentarFonte() {
-    document.getElementById("textoGrande").style.fontSize = "24px";
-}
+imagem.addEventListener("mouseout", function (){
+    imagem.setAttribute("src","carro1.jpg")
+})
 
-function hoverBloco() {
-    document.getElementById("bloco").style.backgroundColor = "blue";
-}
+let lista = document.getElementById("lista")
+let adicionar = document.getElementById("adicionar")
+let remover = document.getElementById("remover")
 
-function sairBloco() {
-    document.getElementById("bloco").style.backgroundColor = "white";
-}
+adicionar.addEventListener("click",function(){
+    let novoItem = document.createElement("li")
+    novoItem.innerText = "Novo Item"
+    lista.appendChild(novoItem)
+})
 
-function aumentarImagem() {
-    let img = document.getElementById("imagem");
-    img.style.width = "200px";
-    img.style.height = "200px";
-}
-
-function arredondarImagem() {
-    document.getElementById("imagemRedonda").style.borderRadius = "50%";
-}
-
-function alterarParagrafo1() {
-    let p = document.getElementById("paragrafo1");
-    p.style.backgroundColor = "yellow";
-    p.style.color = "blue";
-}
-
-function alterarParagrafo2() {
-    let p = document.getElementById("paragrafo2");
-    p.style.backgroundColor = "green";
-    p.style.color = "white";
-    p.style.fontSize = "20px";
-}
-
-function alterarParagrafo3() {
-    let p = document.getElementById("paragrafo3");
-    p.style.backgroundColor = "purple";
-    p.style.color = "white";
-    p.style.fontSize = "20px";
-    p.style.borderRadius = "10px";
-}
+remover.addEventListener("click",function(){
+    if(lista.lastChild){
+        lista.removeChild(lista.lastChild)
+    }
+})
