@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios DOM</title>
+</head>
+<body>
+    <h2>1 - Ocultar Imagem</h2>
+    <img id="imagem" src="carro1.jpg" width="200">
+    <button onclick="toggleImagem()">Ocultar/Mostrar</button>
+
+    <h2>2 - Tema Escuro</h2>
+    <p id="temaTexto">Texto de exemplo</p>
+    <button onclick="temaEscuro()">Alterar Tema</button>
+
+    <h2>3 - Completar Texto</h2>
+    <p id="frase">Meu nome é ______, tenho __ anos, moro em ______, estudo no _____ e faço o curso de ____________.</p>
+    <button onclick="completarTexto()">Completar</button>
+
+    <h2>4 - Cores do Brasil</h2>
+    <p id="brasil">Brasil</p>
+    <button onclick="trocarCor()">Trocar Cor</button>
+
+    <h2>5 - Não clique</h2>
+    <button onclick="alert('Pare de clicar no botão!')">Não clique</button>
+
+    <h2>6 - Escolha premiada</h2>
+    <p>Escolha uma porta e receba seu prêmio</p>
+    <button onclick="mostrarPremio(1)">Porta 1</button>
+    <button onclick="mostrarPremio(2)">Porta 2</button>
+    <button onclick="mostrarPremio(3)">Porta 3</button>
+    <div id="premio"></div>
+
+    <h2>7 - Redimensionar Imagem</h2>
+    <img id="imgResize" src="carro2.jpg" width="200">
+    <button onclick="redimensionarImagem()">Redimensionar</button>
+
+    <h2>8 - Semáforo</h2>
+    <div class="semaforo" id="luz1"></div>
+    <div class="semaforo" id="luz2"></div>
+    <div class="semaforo" id="luz3"></div>
+    <button onclick="mudarSemaforo()">Mudar</button>
+
+    <h2>9 - Recomendação de Filme</h2>
+    <div class="retangulo" onmouseover="trocarImagem(this, 'comedia.jpg')" onmouseout="voltarTexto(this, 'Filme de Comédia')">Filme de Comédia</div>
+    <div class="retangulo" onmouseover="trocarImagem(this, 'acao.jpg')" onmouseout="voltarTexto(this, 'Filme de Ação')">Filme de Ação</div>
+    <div class="retangulo" onmouseover="trocarImagem(this, 'romance.jpg')" onmouseout="voltarTexto(this, 'Filme de Romance')">Filme de Romance</div>
+
+    <script>
+        function toggleImagem() {
+            let img = document.getElementById("imagem");
+            img.style.display = img.style.display === "none" ? "block" : "none";
+        }
+
+        function temaEscuro() {
+            document.body.style.backgroundColor = "black";
+            document.body.style.color = "white";
+        }
+
+        function completarTexto() {
+            document.getElementById("frase").innerText = "Meu nome é Pedro, tenho 17 anos, moro em Suzano, estudo no SENAI e faço o curso de Desenvolvimento de Sistemas.";
+        }
+
+        let cores = ["green", "yellow", "blue"];
+        let indice = 0;
+        function trocarCor() {
+            document.getElementById("brasil").style.color = cores[indice];
+            indice = (indice + 1) % cores.length;
+        }
+
+        function mostrarPremio(porta) {
+            let premio = document.getElementById("premio");
+            if (porta === 1) {
+                alert("Você ganhou um carro!");
+                premio.innerHTML = '<img src="carro.jpg" width="200">';
+            } else if (porta === 2) {
+                alert("Você não ganhou nada!");
+                premio.innerHTML = '<img src="caixa.jpg" width="200">';
+            } else {
+                alert("Parabéns, você encontrou o tesouro!");
+                premio.innerHTML = '<img src="tesouro.jpg" width="200">';
+            }
+        }
+
+        function redimensionarImagem() {
+            let img = document.getElementById("imgResize");
+            let novoTamanho = Math.floor(Math.random() * (300 - 20 + 1)) + 20;
+            img.style.width = novoTamanho + "px";
+        }
+
+        let estadoSemaforo = 0;
+        function mudarSemaforo() {
+            let luzes = ["luz1", "luz2", "luz3"];
+            luzes.forEach((id, i) => document.getElementById(id).style.backgroundColor = "black");
+            if (estadoSemaforo === 0) {
+                alert("PARE");
+                document.getElementById("luz1").style.backgroundColor = "red";
+            } else if (estadoSemaforo === 1) {
+                alert("ATENÇÃO!");
+                document.getElementById("luz2").style.backgroundColor = "yellow";
+            } else {
+                alert("PODE IR!");
+                document.getElementById("luz3").style.backgroundColor = "green";
+            }
+            estadoSemaforo = (estadoSemaforo + 1) % 3;
+        }
+
+        function trocarImagem(elemento, imagem) {
+            elemento.style.backgroundImage = `url(${imagem})`;
+            elemento.style.backgroundSize = "cover";
+            elemento.innerText = "";
+        }
+
+        function voltarTexto(elemento, texto) {
+            elemento.style.backgroundImage = "none";
+            elemento.innerText = texto;
+        }
+    </script>
+</body>
+</html>
