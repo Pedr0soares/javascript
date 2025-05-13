@@ -1,40 +1,90 @@
 const perguntas = [
     {
-        pergunta: "Qual o nome da nossa escola?",
+        pergunta: "Qual dessas alternativas representa uma fonte de energia renovável?",
         opcoes: [
-            "Luis Eulalio de Bueno Vidigal Filho",
-            "Luis Eulalio",
-            "Luis de Bueno",
-            "Luis Eulalio de Vidigal"
-        ],
-        correta: 0
-    },
-    {
-        pergunta: "Qual o nome do nosso curso?",
-        opcoes: [
-            "Analise e Desenvolvimento de Sistemas",
-            "Sistemas de informação",
-            "Desenvolvimento de sistemas",
-            "Ciência da Computação"
+           " A) Carvão mineral",
+            "B) Petróleo",
+            "C) Energia solar",
+            "D) Gás natural"
         ],
         correta: 2
     },
     {
-        pergunta: "Em que ano foi fundada a nossa escola?",
+        pergunta: "Qual é a principal consequência do desmatamento da floresta amazônica para o clima global?",
         opcoes: [
-            "1999", "1942", "1985", "1970"
+            "A) Redução da biodiversidade apenas no Brasil",
+            "B) Aumento da incidência de chuvas no Nordeste",
+            "C) Redução da emissão de CO₂ para a atmosfera",
+            "D) Aumento do efeito estufa por liberação de carbono"
+        ],
+        correta: 3
+    },
+    {
+        pergunta: "O excesso de fertilizantes nitrogenados nas lavouras pode causar que problema em rios e lagos?",
+        opcoes: [
+            "A) Eutrofização", "B) Aumento da salinidade", "C) Redução do pH", "D) Sedimentação"
+        ],
+        correta: 0
+    },
+    {
+        pergunta: "Qual organela celular é responsável pela produção de energia nas células eucariontes?",
+        opcoes: [
+            "A) Ribossomo", "B)  Núcleo", "C)  Mitocôndria", "D) Lisossomo"
+        ],
+        correta: 2
+    },
+    {
+        pergunta: "Ao ligar uma lâmpada de 100W em uma voltagem de 220V, qual a corrente elétrica que passa por ela?",
+        opcoes: [
+            "A) 0,22 A", "B)  2,2 A", "C)  0,45 A", "D) 4,5 A"
         ],
         correta: 1
+    },
+    {
+        pergunta: "Ao usar um chuveiro elétrico de 5500 W durante 10 minutos, qual a quantidade de energia consumida (em kWh)?",
+        opcoes: [
+            "A) 0,55 kWh", "B)   5,5 kWh", "C)  0,92 kWh", "D) 1,52 kWh"
+        ],
+        correta: 2
+    },
+    {
+        pergunta: "O que acontece com as moléculas da água quando ela passa do estado líquido para o gasoso?",
+        opcoes: [
+            "A) Elas diminuem de volume", "B)  Elas perdem energia cinética", "C)   Elas se aproximam umas das outras", "D)  Elas se afastam e ganham energia cinética"
+        ],
+        correta: 3
+    },
+    {
+        pergunta: "Se um casal heterozigoto para albinismo tiver filhos, qual a chance de nascer uma criança albina (genótipo aa)?",
+        opcoes: [
+            "A)100%", "B)  75%", "C)   50%", "D)  25%"
+        ],
+        correta: 3
+    },
+    {
+        pergunta: "Uma solução com pH igual a 2 é considerada:",
+        opcoes: [
+            "A) Neutra", "B)  Levemente ácida", "C)   Fortemente ácida", "D)  Fortemente básica"
+        ],
+        correta: 2
+    },
+    {
+        pergunta: "A camada de ozônio é importante para a vida na Terra porque:",
+        opcoes: [
+            "A) Impede a entrada de oxigênio", "B)  Permite maior radiação solar", "C)   Absorve a radiação ultravioleta", "D) Impede a chuva ácida"
+        ],
+        correta: 2
     }
+
 ];
 
-// Variáveis para controlar o quiz
+// Variáveis de controle
 let perguntaAtual = 0;
 let pontuacao = 0;
 let erros = 0;
 let opcaoSelecionada = null;
 
-// Seleciona os elementos do HTML
+// Elementos HTML
 const pergunta = document.getElementById("pergunta");
 const opcoes = document.getElementById("opcoes");
 const botaoProxima = document.getElementById("proxima");
@@ -51,13 +101,13 @@ function atualizarPlacar() {
     errosContador.textContent = erros;
 }
 
-// Mostra a pergunta atual
+// Exibe a pergunta atual
 function mostrarPergunta() {
     const perguntaAtualObj = perguntas[perguntaAtual];
     pergunta.textContent = perguntaAtualObj.pergunta;
-    opcoes.textContent = ""; // Limpa as opções anteriores
+    opcoes.textContent = "";
 
-    // Cria os botões de opção
+    // Cria botões de opções
     perguntaAtualObj.opcoes.forEach((opcao, indice) => {
         const botao = document.createElement("button");
         botao.textContent = opcao;
@@ -70,7 +120,7 @@ function mostrarPergunta() {
     botaoProxima.disabled = true;
 }
 
-// Quando o usuário seleciona uma opção
+// Seleciona uma opção
 function selecionarOpcao(indice) {
     opcaoSelecionada = indice;
     const botoes = document.querySelectorAll(".opcao");
@@ -80,14 +130,14 @@ function selecionarOpcao(indice) {
     botaoProxima.disabled = false;
 }
 
-// Mostra a pontuação final
+// Exibe a pontuação final
 function mostrarPontuacao() {
     quiz.classList.add("esconder");
     pontuacaoFinal.classList.remove("esconder");
     valorPontuacao.textContent = pontuacao;
 }
 
-// Avança para a próxima pergunta
+// Botão de próxima pergunta
 botaoProxima.addEventListener("click", () => {
     if (opcaoSelecionada === perguntas[perguntaAtual].correta) {
         pontuacao++;
@@ -96,8 +146,8 @@ botaoProxima.addEventListener("click", () => {
     }
 
     atualizarPlacar();
-
     perguntaAtual++;
+
     if (perguntaAtual < perguntas.length) {
         mostrarPergunta();
     } else {
@@ -105,7 +155,7 @@ botaoProxima.addEventListener("click", () => {
     }
 });
 
-// Reinicia o quiz (caso tenha botão de reinício)
+// Botão de reinício
 botaoReiniciar.addEventListener("click", () => {
     perguntaAtual = 0;
     pontuacao = 0;
@@ -119,6 +169,6 @@ botaoReiniciar.addEventListener("click", () => {
     mostrarPergunta();
 });
 
-// Inicia o quiz na primeira pergunta
+// Inicialização
 mostrarPergunta();
 atualizarPlacar();
