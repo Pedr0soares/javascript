@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Carrossel de Produtos</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      margin-top: 20px;
+      color: #333;
+    }
+
+    .carousel-container {
+      position: relative;
+      width: 90%;
+      max-width: 400px;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin-top: 20px;
+    }
+
+    .carousel-slide {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      font-size: 18px;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 50%;
+    }
+
+    .prev {
+      left: 10px;
+    }
+
+    .next {
+      right: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Nossas Camisetas</h1>
+
+  <div class="carousel-container">
+    <div class="carousel-slide">
+      <img src="https://via.placeholder.com/400x400.png?text=Camiseta+1" alt="Produto 1">
+      <img src="https://via.placeholder.com/400x400.png?text=Camiseta+2" alt="Produto 2">
+      <img src="https://via.placeholder.com/400x400.png?text=Camiseta+3" alt="Produto 3">
+    </div>
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+  </div>
+
+  <script>
+    const slide = document.querySelector('.carousel-slide');
+    const images = document.querySelectorAll('.carousel-slide img');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+
+    let counter = 0;
+    const size = images[0].clientWidth;
+
+    function updateSlide() {
+      slide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+    }
+
+    nextBtn.addEventListener('click', () => {
+      counter = (counter + 1) % images.length;
+      updateSlide();
+    });
+
+    prevBtn.addEventListener('click', () => {
+      counter = (counter - 1 + images.length) % images.length;
+      updateSlide();
+    });
+
+    // Auto-slide
+    setInterval(() => {
+      counter = (counter + 1) % images.length;
+      updateSlide();
+    }, 3000);
+  </script>
+
+</body>
+</html>
