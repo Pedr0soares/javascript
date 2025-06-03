@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulador de Caixa - Lanchonete</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 400px;
+      margin: auto;
+      padding: 20px;
+      background-color: #ffe5b4;
+      border-radius: 10px;
+    }
+    button {
+      margin-top: 10px;
+      margin-right: 5px;
+      padding: 10px;
+      background-color: #ff6f61;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #ff4c3b;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+    }
+    .mensagem-especial {
+      font-weight: bold;
+      color: green;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Simulador de Caixa 🍔🍟🥤</h2>
+
+<label for="produto">Produto:</label>
+<select id="produto">
+  <option value="Hambúrguer 🍔" data-preco="15.00">Hambúrguer - R$15,00</option>
+  <option value="Batata Frita 🍟" data-preco="8.00">Batata Frita - R$8,00</option>
+  <option value="Refrigerante 🥤" data-preco="6.00">Refrigerante - R$6,00</option>
+  <option value="Sobremesa 🍨" data-preco="10.00">Sobremesa - R$10,00</option>
+</select>
+
+<label for="quantidade">Quantidade:</label>
+<input type="number" id="quantidade" min="1" value="1">
+
+<button onclick="adicionarItem()">Adicionar à compra</button>
+<button onclick="limparTudo()">Limpar Pedido</button>
+
+<h3>Itens:</h3>
+<ul id="listarItens"></ul>
+
+<h3>Total: R$ <span id="total">0.00</span></h3>
+
+<label for="valorPago">Valor pago (R$):</label>
+<input type="number" id="valorPago" step="0.01">
+
+<button onclick="calcularTroco()">Calcular Troco</button>
+
+<h3>Troco: R$ <span id="troco">0.00</span></h3>
+
+<p id="mensagemEspecial" class="mensagem-especial"></p>
+
+<script>
+  let total = 0;
+
+  function adicionarItem() {
+    const select = document.getElementById("produto");
+    const produto = select.options[select.selectedIndex].value;
+    const valor = parseFloat(select.options[select.selectedIndex].dataset.preco);
+    const quantidade = parseInt(document.getElementById("quantidade").value);
+
+    const subtotal = valor * quantidade;
+    total += subtotal;
+
+    const lista = document.getElementById("listarItens");
+    const item = document.createElement("li");
+    item.textContent = `${produto} - R$${valor.toFixed(2)} x ${quantidade} = R$${subtotal.toFixed(2)}`;
+    lista.appendChild(item);
+
+    document.getElementById("total").textContent = total.toFixed(2);
+
+    verificarMensagemEspecial();
+  }
+
+  function limparTudo() {
+    document.getElementById("listarItens").innerHTML = "";
+    document.getElementById("total").textContent = "0.00";
+    document.getElementById("troco").textContent = "0.00";
+    document.getElementById("valorPago").value = "";
+    document.getElementById("mensagemEspecial").textContent = "";
+    total = 0;
+  }
+
+  function calcularTroco() {
+    const valorPago = parseFloat(document.getElementById("valorPago").value);
+    if (isNaN(valorPago)) {
+      alert("Informe o valor pago corretamente!");
+      return;
+    }
+    if (valorPago < total) {
+      alert("Valor pago insuficiente!");
+      return;
+    }
+    const troco = valorPago - total;
+    document.getElementById("troco").textContent = troco.toFixed(2);
+  }
+
+  function verificarMensagemEspecial() {
+    const mensagem = document.getElementById("mensagemEspecial");
+    if (total >= 50) {
+      mensagem.textContent = "🎉 Parabéns! Sua compra ganhou um brinde especial! 🎁";
+    } else {
+      mensagem.textContent = "";
+    }
+  }
+</script>
+
+</body>
+</html>
