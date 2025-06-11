@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cartões Interativos</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f0f0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 40px 20px;
+      gap: 20px;
+    }
+    .card {
+      width: 200px;
+      height: 260px;
+      perspective: 1000px;
+    }
+    .card-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+      cursor: pointer;
+    }
+    .card:hover .card-inner {
+      transform: rotateY(180deg);
+    }
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border-radius: 12px;
+      padding: 20px;
+      color: white;
+      font-weight: bold;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .card-back {
+      transform: rotateY(180deg);
+    }
+
+    /* Temas */
+    .aniversario .card-front { background: #ff85a2; }
+    .aniversario .card-back { background: #ff6699; }
+
+    .natal .card-front { background: #2e8b57; }
+    .natal .card-back { background: #3cb371; }
+
+    .maes .card-front { background: #ffa07a; }
+    .maes .card-back { background: #ff7f50; }
+
+    .namorados .card-front { background: #db7093; }
+    .namorados .card-back { background: #c71585; }
+
+    .anonovo .card-front { background: #ffd700; color: black; }
+    .anonovo .card-back { background: #ffcc00; color: black; }
+
+    .pascoa .card-front { background: #dda0dd; }
+    .pascoa .card-back { background: #da70d6; }
+
+    .professor .card-front { background: #6495ed; }
+    .professor .card-back { background: #4169e1; }
+
+    .desculpas .card-front { background: #a9a9a9; }
+    .desculpas .card-back { background: #696969; }
+
+    .motivacional .card-front { background: #00ced1; }
+    .motivacional .card-back { background: #20b2aa; }
+
+    .festajunina .card-front { background: #ff4500; }
+    .festajunina .card-back { background: #ff6347; }
+  </style>
+</head>
+<body>
+
+  <div class="card aniversario">
+    <div class="card-inner">
+      <div class="card-front">🎉 Feliz Aniversário!</div>
+      <div class="card-back">Que seu dia seja cheio de alegria, amor e muitos presentes! 🥳</div>
+    </div>
+  </div>
+
+  <div class="card natal">
+    <div class="card-inner">
+      <div class="card-front">🎄 Feliz Natal!</div>
+      <div class="card-back">Desejo paz, amor e muitas bênçãos para sua família! 🎁</div>
+    </div>
+  </div>
+
+  <div class="card maes">
+    <div class="card-inner">
+      <div class="card-front">💐 Dia das Mães</div>
+      <div class="card-back">Você é a melhor mãe do mundo! Te amo! ❤️</div>
+    </div>
+  </div>
+
+  <div class="card namorados">
+    <div class="card-inner">
+      <div class="card-front">💕 Dia dos Namorados</div>
+      <div class="card-back">Você é meu amor, hoje e sempre! 💖</div>
+    </div>
+  </div>
+
+  <div class="card anonovo">
+    <div class="card-inner">
+      <div class="card-front">🎆 Feliz Ano Novo!</div>
+      <div class="card-back">Que o novo ano traga muitos sonhos realizados! ✨</div>
+    </div>
+  </div>
+
+  <div class="card pascoa">
+    <div class="card-inner">
+      <div class="card-front">🐰 Feliz Páscoa!</div>
+      <div class="card-back">Que a esperança renasça no seu coração! 🍫</div>
+    </div>
+  </div>
+
+  <div class="card professor">
+    <div class="card-inner">
+      <div class="card-front">📚 Dia do Professor</div>
+      <div class="card-back">Obrigado por compartilhar tanto conhecimento! 👏</div>
+    </div>
+  </div>
+
+  <div class="card desculpas">
+    <div class="card-inner">
+      <div class="card-front">😔 Me desculpe</div>
+      <div class="card-back">Errei, mas quero consertar. Me perdoa? 💔</div>
+    </div>
+  </div>
+
+  <div class="card motivacional">
+    <div class="card-inner">
+      <div class="card-front">💪 Você consegue!</div>
+      <div class="card-back">Acredite em si mesmo! Grandes coisas te esperam! 🚀</div>
+    </div>
+  </div>
+
+  <div class="card festajunina">
+    <div class="card-inner">
+      <div class="card-front">🎊 Festa Junina</div>
+      <div class="card-back">Vamos dançar quadrilha e comer canjica! 🌽</div>
+    </div>
+  </div>
+
+</body>
+</html>
