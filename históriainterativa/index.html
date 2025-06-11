@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Os Três Porquinhos - História Interativa</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff7e6;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #d2691e;
+    }
+    #historia p {
+      font-size: 1.2em;
+    }
+    button {
+      margin: 8px 8px 8px 0;
+      padding: 10px 16px;
+      font-size: 1em;
+      cursor: pointer;
+      border-radius: 6px;
+      border: none;
+      background-color: #ff9900;
+      color: white;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #e87f00;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Os Três Porquinhos</h1>
+  <div id="historia">
+    <p>Os três porquinhos saem de casa para construir suas próprias casas. O que o primeiro porquinho escolhe?</p>
+    <button onclick="decisao1('palha')">Construir com palha (rápido)</button>
+    <button onclick="decisao1('madeira')">Construir com madeira (médio)</button>
+  </div>
+
+  <script>
+    function decisao1(escolha) {
+      const div = document.getElementById("historia");
+      if (escolha === 'palha') {
+        div.innerHTML = `
+          <p>O porquinho constrói rapidamente sua casa de palha. Mas o lobo aparece! O que fazer?</p>
+          <button onclick="decisao2('fugir_madeira')">Fugir para a casa de madeira</button>
+          <button onclick="decisao2('esconder_palha')">Tentar se esconder na casa de palha</button>
+        `;
+      } else {
+        div.innerHTML = `
+          <p>O porquinho constrói uma casa de madeira. Logo o lobo aparece! O que ele deve fazer?</p>
+          <button onclick="decisao2('fugir_tijolo')">Fugir para a casa de tijolos</button>
+          <button onclick="decisao2('enfrentar_lobo')">Tentar enfrentar o lobo</button>
+        `;
+      }
+    }
+
+    function decisao2(escolha) {
+      const div = document.getElementById("historia");
+      switch (escolha) {
+        case 'fugir_madeira':
+          div.innerHTML = `
+            <p>O porquinho corre para a casa de madeira, mas o lobo também sopra e derruba! Os dois fogem juntos para a casa de tijolos.</p>
+            <button onclick="final()">Ver o final</button>
+          `;
+          break;
+        case 'esconder_palha':
+          div.innerHTML = `
+            <p>O lobo sopra e derruba a casa de palha. O porquinho escapa por pouco!</p>
+            <button onclick="final()">Ver o final</button>
+          `;
+          break;
+        case 'fugir_tijolo':
+          div.innerHTML = `
+            <p>O porquinho foge para a casa de tijolos, que é muito forte. Os irmãos se juntam lá.</p>
+            <button onclick="final()">Ver o final</button>
+          `;
+          break;
+        case 'enfrentar_lobo':
+          div.innerHTML = `
+            <p>O porquinho tenta enfrentar o lobo, mas não consegue sozinho. Ele foge para a casa de tijolos.</p>
+            <button onclick="final()">Ver o final</button>
+          `;
+          break;
+      }
+    }
+
+    function final() {
+      const div = document.getElementById("historia");
+      div.innerHTML = `
+        <p>Todos os porquinhos se reúnem na casa de tijolos, construída com esforço e paciência. O lobo não consegue derrubar e vai embora!<br><br><strong>FIM FELIZ 🐷🏠</strong></p>
+      `;
+    }
+  </script>
+
+</body>
+</html>
