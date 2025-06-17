@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Jukebox Visual</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            transition: background 0.5s ease;
+            padding: 20px;
+        }
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        #foto {
+            margin-top: 20px;
+            max-width: 300px;
+            display: none;
+        }
+        #nomeMusica {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎵 Jukebox Visual 🎵</h1>
+    <p>Como você está se sentindo?</p>
+
+    <button onclick="tocar('alegria')">Alegria</button>
+    <button onclick="tocar('tristeza')">Tristeza</button>
+    <button onclick="tocar('aventura')">Aventura</button>
+    <button onclick="tocar('amor')">Amor/Romântica</button>
+    <button onclick="tocar('terror')">Mistério/Terror</button>
+    <button onclick="tocar('calma')">Calma/Relaxamento</button>
+    <button onclick="tocar('energia')">Animação/Energia</button>
+    <button onclick="tocar('suspense')">Suspense/Curiosidade</button>
+    <button onclick="parar()">Parar</button>
+
+    <div id="imagem">
+        <img id="foto" src="" alt="Emoção">
+    </div>
+
+    <div id="nomeMusica"></div>
+
+    <audio id="audio" src="" controls style="display: none;"></audio>
+
+    <script>
+        function tocar(tipo) {
+            const audio = document.getElementById("audio");
+            const foto = document.getElementById("foto");
+            const nomeMusica = document.getElementById("nomeMusica");
+
+            let musica = "";
+            let imagem = "";
+            let cor = "";
+            let titulo = "";
+
+            switch (tipo) {
+                case "alegria":
+                    musica = "alegria.mp3";
+                    imagem = "https://media.istockphoto.com/id/1474792234/pt/vetorial/single-emoji-icon-fun-icon-emoticon.jpg?s=612x612&w=0&k=20&c=eJNpMsCvC9RyYs5_XyMFVJLpv-kq2Y3AKNhOGAvXDCU=";
+                    cor = "#fff176";
+                    titulo = "Alegria 🎉";
+                    break;
+
+                case "tristeza":
+                    musica = "triste.mp3";
+                    imagem = "https://img.freepik.com/vetores-premium/emoticon-de-alta-qualidade-emoji-perseverante-rosto-desamparado-com-olhos-franzidos-emoji-de-rosto-amarelo-elemento-popular_686498-2679.jpg?semt=ais_hybrid&w=740";
+                    cor = "#90a4ae";
+                    titulo = "Tristeza💧";
+                    break;
+
+                case "aventura":
+                    musica = "aventura.mp3";
+                    imagem = "https://cdn-icons-png.flaticon.com/512/743/743405.png";
+                    cor = "#81d4fa";
+                    titulo = "Aventura🌍";
+                    break;
+
+                case "amor":
+                    musica = "amor.mp3";
+                    imagem = "https://images.vexels.com/media/users/3/134603/isolated/preview/2dd101be195b2560fd452658bbdb259f-em-amor-emoticon.png?w=360";
+                    cor = "#f8bbd0";
+                    titulo = "Amor 💖";
+                    break;
+
+                case "terror":
+                    musica = "terror.mp3";
+                    imagem = "https://as2.ftcdn.net/jpg/06/03/64/21/1000_F_603642100_CSzS87WPNz9tV4CNxBHun8MJXth5y0iw.jpg";
+                    cor = "#212121";
+                    titulo = "Terror 👻";
+                    break;
+
+                case "calma":
+                    musica = "calma.mp3";
+                    imagem = "https://images.emojiterra.com/google/noto-emoji/unicode-16.0/color/share/1f60c.jpg";
+                    cor = "#c8e6c9";
+                    titulo = "Calma 🌿";
+                    break;
+
+                case "energia":
+                    musica = "energia.mp3";
+                    imagem = "https://png.pngtree.com/png-clipart/20200701/original/pngtree-hand-drawn-sun-full-of-positive-energy-png-image_5396108.jpg";
+                    cor = "#ffcc80";
+                    titulo = "Energia ⚡";
+                    break;
+
+                case "suspense":
+                    musica = "suspense.mp3";
+
+                    imagem = "https://media.istockphoto.com/id/1447349632/pt/vetorial/nervous-emoticon.jpg?s=612x612&w=0&k=20&c=wDwaZHKNZQuHQpHRIjScWrGTFz6k7-aoVr6kEqjbxL0=";
+                    cor = "#b39ddb";
+                    titulo = "Suspense 🕵️";
+                    break;
+            }
+
+            document.body.style.backgroundColor = cor;
+            foto.src = imagem;
+            foto.style.display = "block";
+            audio.src = musica;
+            audio.style.display = "block";
+            audio.play();
+            nomeMusica.innerText = "Tocando: " + titulo;
+        }
+
+        function parar() {
+            const audio = document.getElementById("audio");
+            const foto = document.getElementById("foto");
+            const nomeMusica = document.getElementById("nomeMusica");
+
+            audio.pause();
+            audio.currentTime = 0;
+            audio.style.display = "none";
+
+            foto.style.display = "none";
+            nomeMusica.innerText = "";
+            document.body.style.backgroundColor = "#fff";
+        }
+    </script>
+</body>
+</html>
