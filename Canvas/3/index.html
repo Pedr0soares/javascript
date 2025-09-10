@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apagar Parte do Quadrado</title>
+</head>
+<body>
+    <canvas id="meuCanvas" width="400" height="300" style="border: 2px solid black;"></canvas>
+
+    <script>
+        const canvas = document.getElementById("meuCanvas");
+        const ctx = canvas.getContext("2d");
+
+        // Desenha um quadrado verde
+        ctx.fillStyle = "green";
+        ctx.fillRect(100, 100, 100, 100);
+
+        // Apaga uma parte do quadrado (um retângulo dentro dele)
+        ctx.clearRect(120, 120, 40, 40);  
+        // (120,120) = posição do corte
+        // 40x40 = área apagada
+    </script>
+</body>
+</html>

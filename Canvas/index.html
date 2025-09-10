@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Teste</title>
+</head>
+<body>
+    <canvas id="meuCanvas" width="400" height="300" style="border: 5px solid black;"></canvas>
+
+    <script>
+        const canvas = document.getElementById("meuCanvas");
+        const ctx = canvas.getContext("2d");
+
+        // Retângulo azul
+        ctx.fillStyle = "blue"; // "fillstyle" -> tem que ser "fillStyle" (S maiúsculo)
+        ctx.fillRect(50, 50, 100, 50); // "fillReact" -> é "fillRect"
+
+        // Círculo verde
+        ctx.beginPath(); // "beginpath" -> tem que ser "beginPath"
+        ctx.arc(200, 100, 30, 0, 2 * Math.PI);
+        ctx.fillStyle = "green";
+        ctx.fill();
+
+        //Desenhar um triangulo 
+        ctx.begunPath()
+        ctx.moveto(300,50)
+        ctx.lineto(350,150)
+        ctx.closePath()
+        ctx.fillStyle = "red"
+        ctx.fill()
+
+        ctx.closeRect(100,80,50,50)
+    </script>
+</body>
+</html>

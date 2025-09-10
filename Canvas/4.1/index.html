@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Carinha Feliz</title>
+</head>
+<body>
+<canvas id="meuCanvas" width="400" height="300" style="border: 2px solid black;"></canvas>
+
+<script>
+const ctx = document.getElementById("meuCanvas").getContext("2d");
+
+// Cabeça (círculo amarelo)
+ctx.beginPath();
+ctx.arc(200, 150, 80, 0, 2 * Math.PI);
+ctx.fillStyle = "yellow";
+ctx.fill();
+ctx.stroke();
+
+// Olho esquerdo
+ctx.beginPath();
+ctx.arc(170, 130, 10, 0, 2 * Math.PI);
+ctx.fillStyle = "black";
+ctx.fill();
+
+// Olho direito
+ctx.beginPath();
+ctx.arc(230, 130, 10, 0, 2 * Math.PI);
+ctx.fill();
+
+// Boca (arco sorridente)
+ctx.beginPath();
+ctx.arc(200, 160, 40, 0, Math.PI);
+ctx.stroke();
+</script>
+</body>
+</html>

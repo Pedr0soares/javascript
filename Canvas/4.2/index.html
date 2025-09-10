@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Casa Simples</title>
+</head>
+<body>
+<canvas id="meuCanvas" width="400" height="300" style="border: 2px solid black;"></canvas>
+
+<script>
+const ctx = document.getElementById("meuCanvas").getContext("2d");
+
+// Base da casa
+ctx.fillStyle = "lightblue";
+ctx.fillRect(120, 150, 160, 100); 
+// (x=120, y=150, largura=160, altura=100)
+
+// Telhado (triângulo)
+ctx.beginPath();
+ctx.moveTo(120, 150);   // canto esquerdo
+ctx.lineTo(200, 80);    // topo
+ctx.lineTo(280, 150);   // canto direito
+ctx.closePath();
+ctx.fillStyle = "brown";
+ctx.fill();
+
+// Porta
+ctx.fillStyle = "darkred";
+ctx.fillRect(180, 190, 40, 60); 
+// (x=180, y=190, largura=40, altura=60)
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Círculo Vermelho</title>
+</head>
+<body>
+    <canvas id="meuCanvas" width="400" height="300" style="border: 2px solid black;"></canvas>
+
+    <script>
+        const canvas = document.getElementById("meuCanvas");
+        const ctx = canvas.getContext("2d");
+
+        // Círculo vermelho
+        ctx.beginPath();
+        ctx.arc(200, 150, 50, 0, 2 * Math.PI); 
+        // (200,150) = centro
+        // 50 = raio
+        // 0 -> 2*PI = círculo completo
+        ctx.fillStyle = "red";
+        ctx.fill();
+    </script>
+</body>
+</html>
