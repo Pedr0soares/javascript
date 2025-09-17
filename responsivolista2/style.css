@@ -1,0 +1,82 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+/* 1 - Fontes */
+.px {
+  font-size: 20px;
+}
+.em {
+  font-size: 2em;
+}
+.rem {
+  font-size: 2rem;
+}
+
+/* 2 - Imagem */
+.fixa {
+  width: 300px;
+  margin: 10px 0;
+}
+.responsiva {
+  max-width: 100%;
+  margin: 10px 0;
+}
+
+/* 3 - Perfil */
+.perfil {
+  text-align: center;
+}
+.perfil-img {
+  max-width: 200px;
+  border-radius: 50%;
+}
+.nome {
+  font-size: 2rem;
+}
+.descricao {
+  max-width: 400px;
+  margin: auto;
+}
+
+/* Responsivo perfil */
+@media (max-width: 600px) {
+  body {
+    background-color: #eee;
+  }
+  .nome {
+    font-size: 1.2rem;
+  }
+}
+
+/* 4 - Seções */
+.container {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+.box {
+  flex: 1;
+  padding: 20px;
+  background: lightblue;
+  text-align: center;
+}
+
+/* Breakpoints */
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column;
+    background: lightcoral;
+  }
+}
+@media (min-width: 601px) and (max-width: 1024px) {
+  .container {
+    background: lightgreen;
+  }
+}
+@media (min-width: 1025px) {
+  .container {
+    background: lightblue;
+  }
+}
