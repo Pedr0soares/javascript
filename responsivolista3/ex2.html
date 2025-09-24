@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercício 2</title>
+</head>
+<body>
+  <h2>Lâmpada</h2>
+  <img id="lampada" src="lampada-apagada.jpg" alt="Lâmpada">
+
+  <script>
+    const lamp = document.getElementById("lampada");
+    let acesa = false;
+
+    lamp.addEventListener("click", () => {
+      if (acesa) {
+        lamp.src = "lampada-apagada.jpg";
+        acesa = false;
+      } else {
+        lamp.src = "lampada-acesa.jpg";
+        acesa = true;
+      }
+    });
+  </script>
+</body>
+</html>

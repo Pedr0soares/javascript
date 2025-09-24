@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercício 7</title>
+</head>
+<body>
+  <h2>Carrossel</h2>
+  <img id="carrossel" src="img1.jpg" alt="Carrossel" width="400">
+  <br><br>
+  <button id="anterior">Anterior</button>
+  <button id="proximo">Próxima</button>
+
+  <script>
+    const imagens = ["img1.jpg", "img2.jpg", "img3.jpg"];
+    let indice = 0;
+    const carrossel = document.getElementById("carrossel");
+
+    document.getElementById("proximo").addEventListener("click", () => {
+      indice = (indice + 1) % imagens.length;
+      carrossel.src = imagens[indice];
+    });
+
+    document.getElementById("anterior").addEventListener("click", () => {
+      indice = (indice - 1 + imagens.length) % imagens.length;
+      carrossel.src = imagens[indice];
+    });
+  </script>
+</body>
+</html>

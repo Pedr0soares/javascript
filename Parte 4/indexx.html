@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>O banner vai trocar</h1>
+    <img id="banner" src="img1..jpg" width="500px">
+
+    <script>
+        const banner = document.getElementById("banner")
+        function trocaImg(){
+            if(window.innerWidth < 600){
+                banner.src = "IMG2"
+            } else {
+                banner.src = "IMG1"
+            }
+        }
+        trocaImg() //executa fução quando o site carrega
+        //Executa função quando mudar o tamanho da tela
+        window.addEventListener("resize", trocaImg)
+    </script>
+
+</body>
+</html>

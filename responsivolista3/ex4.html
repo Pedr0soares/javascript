@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercício 4</title>
+</head>
+<body>
+  <h2>Trocar Foto de Perfil</h2>
+  <img id="perfil" src="perfil1.jpg" alt="Perfil" width="200">
+  <br><br>
+  <button id="trocar">Trocar Foto</button>
+
+  <script>
+    const perfil = document.getElementById("perfil");
+    const botao = document.getElementById("trocar");
+    let trocou = false;
+
+    botao.addEventListener("click", () => {
+      if (trocou) {
+        perfil.src = "perfil1.jpg";
+        trocou = false;
+      } else {
+        perfil.src = "perfil2.jpg";
+        trocou = true;
+      }
+    });
+  </script>
+</body>
+</html>

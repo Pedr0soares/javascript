@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercício 5</title>
+</head>
+<body>
+  <h2>Galeria</h2>
+  <div>
+    <img src="img1.jpg" class="mini" width="100">
+    <img src="img2.jpg" class="mini" width="100">
+    <img src="img3.jpg" class="mini" width="100">
+  </div>
+  <br>
+  <img id="grande" src="img1.jpg" alt="Imagem Grande" width="400">
+
+  <script>
+    const miniaturas = document.querySelectorAll(".mini");
+    const grande = document.getElementById("grande");
+
+    miniaturas.forEach(img => {
+      img.addEventListener("click", () => {
+        grande.src = img.src;
+      });
+    });
+  </script>
+</body>
+</html>

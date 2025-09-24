@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercício 6</title>
+</head>
+<body>
+  <h2>Banner Responsivo</h2>
+  <img id="banner" src="banner-desktop.jpg" alt="Banner" width="100%">
+
+  <script>
+    function trocarBanner() {
+      const largura = window.innerWidth;
+      const banner = document.getElementById("banner");
+
+      if (largura < 600) {
+        banner.src = "banner-mobile.jpg";
+      } else if (largura < 1024) {
+        banner.src = "banner-tablet.jpg";
+      } else {
+        banner.src = "banner-desktop.jpg";
+      }
+    }
+
+    window.addEventListener("resize", trocarBanner);
+    window.addEventListener("load", trocarBanner);
+  </script>
+</body>
+</html>
