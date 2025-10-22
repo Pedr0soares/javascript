@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exercícios de Funções em JavaScript</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  button {
+    margin: 5px;
+    padding: 8px 15px;
+    cursor: pointer;
+  }
+  h2 {
+    color: #007bff;
+  }
+  #resultado {
+    margin-top: 20px;
+    font-size: 18px;
+    color: darkgreen;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+
+<h1>Exercícios de Funções - JavaScript</h1>
+
+<h2>1️⃣ Multiplicar Três Números</h2>
+<button onclick="mostrarMultiplicacaoTres()">Executar</button>
+
+<h2>2️⃣ Dividir Dois Números (com verificação)</h2>
+<button onclick="mostrarDivisao()">Executar</button>
+
+<h2>3️⃣ Conversão Celsius ↔ Fahrenheit</h2>
+<button onclick="mostrarConversoes()">Executar</button>
+
+<h2>4️⃣ Calcular Média de Três Números</h2>
+<button onclick="mostrarMedia()">Executar</button>
+
+<h2>5️⃣ Contar Caracteres de uma String</h2>
+<button onclick="mostrarContagem()">Executar</button>
+
+<h2>6️⃣ Calculadora Básica</h2>
+<button onclick="mostrarCalculadora()">Executar</button>
+
+<p id="resultado"></p>
+
+<script>
+// --------------------------
+// Exercício 1
+// --------------------------
+function multiplicarTresNumeros(a, b, c) {
+  return a * b * c;
+}
+function mostrarMultiplicacaoTres() {
+  let resultado = multiplicarTresNumeros(2, 3, 4);
+  console.log("Resultado:", resultado);
+  document.getElementById("resultado").textContent = "Resultado: " + resultado;
+}
+
+// --------------------------
+// Exercício 2
+// --------------------------
+function dividir(a, b) {
+  if (b === 0) {
+    return "Não é possível dividir por 0";
+  } else {
+    return a / b;
+  }
+}
+function mostrarDivisao() {
+  let resultado = dividir(7, 0);
+  console.log("Resultado:", resultado);
+  document.getElementById("resultado").textContent = "Resultado: " + resultado;
+}
+
+// --------------------------
+// Exercício 3
+// --------------------------
+function celsiusFahrenheit(c) {
+  return c * 1.8 + 32;
+}
+
+function fahrenheitCelsius(f) {
+  return (f - 32) / 1.8;
+}
+
+function mostrarConversoes() {
+  let cParaF = celsiusFahrenheit(30);
+  let fParaC = fahrenheitCelsius(86);
+  console.log("30°C = " + cParaF + "°F");
+  console.log("86°F = " + fParaC.toFixed(2) + "°C");
+  document.getElementById("resultado").innerHTML =
+    "30°C = " + cParaF + "°F<br>86°F = " + fParaC.toFixed(2) + "°C";
+}
+
+// --------------------------
+// Exercício 4
+// --------------------------
+function calcularMedia(a, b, c) {
+  return (a + b + c) / 3;
+}
+function mostrarMedia() {
+  let resultado = calcularMedia(10, 20, 30);
+  console.log("Resultado:", resultado);
+  document.getElementById("resultado").textContent = "Resultado: " + resultado;
+}
+
+// --------------------------
+// Exercício 5
+// --------------------------
+function contarCaracteres(texto) {
+  return texto.length;
+}
+function mostrarContagem() {
+  let resultado = contarCaracteres("JavaScript");
+  console.log("Resultado:", resultado);
+  document.getElementById("resultado").textContent = 
+    "A palavra 'JavaScript' tem " + resultado + " caracteres.";
+}
+
+// --------------------------
+// Exercício 6
+// --------------------------
+function calculadora(a, b, operador) {
+  switch (operador) {
+    case '+': return a + b;
+    case '-': return a - b;
+    case '*': return a * b;
+    case '/': return b === 0 ? "Divisão por zero não permitida" : a / b;
+    default: return "Operador inválido";
+  }
+}
+function mostrarCalculadora() {
+  let resultado = calculadora(4, 2, '/');
+  console.log("Resultado:", resultado);
+  document.getElementById("resultado").textContent = "Resultado: " + resultado;
+}
+</script>
+
+</body>
+</html>
