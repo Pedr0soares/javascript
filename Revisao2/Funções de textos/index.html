@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Manipulando Texto</title>
+</head>
+<body>
+    <h2>Funções de Texto</h2>
+    <input type="text" id="frase" placeholder="Digite uma frase">
+    <button id="analisar">Analisar</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        const fraseInput = document.getElementById("frase");
+        const botao = document.getElementById("analisar");
+        const resultado = document.getElementById("resultado");
+
+        botao.addEventListener("click", () => {
+            let frase = fraseInput.value;
+
+            let tamanho = frase.length;
+            let maiuscula = frase.toUpperCase();
+            let minuscula = frase.toLowerCase();
+            let substituida = frase.replace("gato", "cachorro"); // exemplo
+            let contem = frase.includes("amor") ? "Sim" : "Não";
+            let caractere5 = frase.charAt(5);
+
+            resultado.innerHTML = `
+                <b>Frase digitada:</b> ${frase}<br>
+                <b>Quantidade de caracteres:</b> ${tamanho}<br>
+                <b>Maiúsculas:</b> ${maiuscula}<br>
+                <b>Minúsculas:</b> ${minuscula}<br>
+                <b>Substituindo 'gato' por 'cachorro':</b> ${substituida}<br>
+                <b>Contém a palavra 'amor'?</b> ${contem}<br>
+                <b>Caractere na posição 5:</b> ${caractere5}
+            `;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Funções Matemáticas</title>
+</head>
+<body>
+    <h2>1 - Adivinhar o número</h2>
+    <button id="adivinhar">Jogar</button>
+    <p id="resultado1"></p>
+
+    <h2>2 - Arredondando valores</h2>
+    <input type="number" step="0.01" id="decimal" placeholder="Digite um número decimal">
+    <button id="arredondar">Arredondar</button>
+    <p id="resultado2"></p>
+
+    <h2>3 - Manipulando números</h2>
+    <input type="text" id="sequencia" placeholder="Digite 10 números separados por vírgula">
+    <button id="analisar">Analisar</button>
+    <p id="resultado3"></p>
+
+    <h2>4 - Novos valores</h2>
+    <input type="number" id="numero" placeholder="Digite um número">
+    <button id="calcular">Calcular</button>
+    <p id="resultado4"></p>
+
+    <script>
+        // 1 - Adivinhar o número
+        const botaoAdivinhar = document.getElementById("adivinhar");
+        const resultado1 = document.getElementById("resultado1");
+        botaoAdivinhar.addEventListener("click", () => {
+            let aleatorio = Math.floor(Math.random() * 10) + 1;
+            let palpite = Number(prompt("Adivinhe um número entre 1 e 10:"));
+            if (palpite === aleatorio) {
+                resultado1.innerText = "🎉 Acertou! O número era " + aleatorio;
+            } else {
+                resultado1.innerText = "❌ Errou! O número era " + aleatorio;
+            }
+        });
+
+        // 2 - Arredondando valores
+        const decimal = document.getElementById("decimal");
+        const arredondar = document.getElementById("arredondar");
+        const resultado2 = document.getElementById("resultado2");
+        arredondar.addEventListener("click", () => {
+            let valor = Number(decimal.value);
+            let cima = Math.ceil(valor);
+            let baixo = Math.floor(valor);
+            let normal = Math.round(valor);
+            resultado2.innerHTML = `
+                Valor original: ${valor}<br>
+                Arredondado para cima: ${cima}<br>
+                Arredondado para baixo: ${baixo}<br>
+                Arredondado normalmente: ${normal}
+            `;
+        });
+
+        // 3 - Manipulando números
+        const sequencia = document.getElementById("sequencia");
+        const analisar = document.getElementById("analisar");
+        const resultado3 = document.getElementById("resultado3");
+        analisar.addEventListener("click", () => {
+            let numeros = sequencia.value.split(",").map(n => Number(n.trim()));
+            let maior = Math.max(...numeros);
+            let menor = Math.min(...numeros);
+            resultado3.innerHTML = `
+                Números: ${numeros.join(", ")}<br>
+                Maior número: ${maior}<br>
+                Menor número: ${menor}
+            `;
+        });
+
+        // 4 - Novos valores
+        const numero = document.getElementById("numero");
+        const calcular = document.getElementById("calcular");
+        const resultado4 = document.getElementById("resultado4");
+        calcular.addEventListener("click", () => {
+            let n = Number(numero.value);
+            let absoluto = Math.abs(n);
+            let elevado = Math.pow(n, 4);
+            let raiz = Math.sqrt(n);
+            resultado4.innerHTML = `
+                Número informado: ${n}<br>
+                Valor absoluto: ${absoluto}<br>
+                Elevado a 4: ${elevado}<br>
+                Raiz quadrada: ${raiz}
+            `;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #menu.oculto, #menuBtn{
+            display: none;
+        }
+        @media(max-width: 600px){
+            nav{
+                display: block;
+                background-color: aqua;
+            }
+            #menuBtn{
+                display: block;
+            }
+            .menu{
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <a href="#">Inicio</a>
+        <a href="#">Contato</a>
+    </div>
+    <!--Mobile-->
+    <button id="menuBtn">Menu Hamburguer</button>
+    <nav id="menu" class="oculto">
+        <a href="#">Inicio</a>
+        <a href="#">Fim</a>
+    </nav>
+
+    <script>
+        const botao = document.getElementById("menuBtn")
+        const menu = document.getElementById("menu")
+
+        botao.addEventListener("click", () => {
+            if(menu.classList.contains("oculto")){
+                menu.classList.remove("oculto")
+            } else {
+                menu.classList.add("oculto")
+            }
+        })
+    </script>
+</body>
+</html>

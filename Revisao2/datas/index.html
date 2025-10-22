@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Datas</title>
+</head>
+<body>
+    <h2>1 - Mostrando a data</h2>
+    <button id="mostrarData">Mostrar data no console</button>
+
+    <h2>2 - Dias para meu aniversário</h2>
+    <button id="aniversario">Calcular</button>
+    <p id="resultado"></p>
+
+    <script>
+        // 1 - Mostrando a data
+        const btnData = document.getElementById("mostrarData");
+        btnData.addEventListener("click", () => {
+            const hoje = new Date();
+            console.log("Data atual:", hoje.toLocaleDateString("pt-BR"));
+        });
+
+        // 2 - Dia do aniversário
+        const btnAniversario = document.getElementById("aniversario");
+        const resultado = document.getElementById("resultado");
+
+        btnAniversario.addEventListener("click", () => {
+            const hoje = new Date();
+            
+            // ⚡ Coloque sua data de aniversário aqui
+            const aniversario = new Date(hoje.getFullYear(), 9, 5); // exemplo: 05/10 (mês 9 porque começa em 0)
+
+            // Se o aniversário já passou neste ano, calcula para o próximo
+            if (aniversario < hoje) {
+                aniversario.setFullYear(hoje.getFullYear() + 1);
+            }
+
+            const diferenca = aniversario - hoje;
+            const diasFaltando = Math.ceil(diferenca / (1000 * 60 * 60 * 24));
+
+            resultado.innerText = "Faltam " + diasFaltando + " dias para o meu aniversário 🎉";
+        });
+    </script>
+</body>
+</html>
