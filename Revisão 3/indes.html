@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Funções e DOM</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  button {
+    margin: 5px;
+    padding: 8px 15px;
+    cursor: pointer;
+  }
+  #titulo {
+    color: black;
+    font-size: 24px;
+  }
+  #paragrafo {
+    font-size: 16px;
+  }
+</style>
+</head>
+<body>
+
+<h1 id="titulo">Título Original</h1>
+<p id="paragrafo">Parágrafo original</p>
+
+<hr>
+<h2>Funções</h2>
+<button onclick="saudacao()">1 - Função Declarativa</button>
+<button onclick="dizerOla('Pedro')">2 - Função com Parâmetro</button>
+<button onclick="mensagemAnonima()">3 - Função Anônima</button>
+<button onclick="mostrarMultiplicacao()">4 - Arrow Function</button>
+
+<hr>
+<h2>DOM – Manipulação</h2>
+<button onclick="trocarTexto()">1 - Trocar Texto</button>
+<button onclick="mudarCorFundo()">2 - Mudar Fundo Azul</button>
+<ul id="lista">
+  <li>Item 1</li>
+</ul>
+<button onclick="adicionarItem()">3 - Adicionar Item</button>
+<p id="paragrafoRemover">Este parágrafo será removido.</p>
+<button onclick="removerParagrafo()">4 - Remover Parágrafo</button>
+<button onclick="personalizar()">5 - Personalizar Página</button>
+
+<hr>
+<h2>DOM – Eventos</h2>
+
+<!-- 1 - Digitação -->
+<input type="text" id="campoTexto" placeholder="Digite algo...">
+<p id="textoDigitado"></p>
+
+<!-- 2 - Mouseover -->
+<button id="botaoMouseOver">Passe o mouse aqui</button>
+
+<!-- 3 - Dblclick -->
+<p id="esconderElemento">Clique duplo no botão abaixo para esconder este parágrafo.</p>
+<button id="botaoEsconder">Clique Duplo Aqui</button>
+
+<!-- 4 - Alterar fonte -->
+<p id="textoFonte">Texto com tamanho de fonte alterável.</p>
+<button id="botaoFonte">Alterar Tamanho da Fonte</button>
+
+<script>
+// ----------------------
+// FUNÇÕES
+// ----------------------
+
+// 1 - Função Declarativa
+function saudacao() {
+  console.log("Olá! Seja bem-vindo!");
+}
+
+// 2 - Função com Parâmetro
+function dizerOla(nome) {
+  console.log("Olá, " + nome + "!");
+}
+
+// 3 - Função Anônima
+const mensagemAnonima = function() {
+  alert("Essa é uma função anônima!");
+}
+
+// 4 - Arrow Function
+const multiplicar = (a, b) => a * b;
+function mostrarMultiplicacao() {
+  alert("3 x 4 = " + multiplicar(3, 4));
+}
+
+// ----------------------
+// DOM – MANIPULAÇÃO
+// ----------------------
+
+// 1 - Trocar texto
+function trocarTexto() {
+  document.getElementById("paragrafo").textContent = "Texto alterado com JS!";
+}
+
+// 2 - Mudar cor de fundo
+function mudarCorFundo() {
+  document.body.style.backgroundColor = "blue";
+  document.body.style.color = "white";
+}
+
+// 3 - Adicionar item na lista
+function adicionarItem() {
+  let lista = document.getElementById("lista");
+  let novoItem = document.createElement("li");
+  novoItem.textContent = "Novo item";
+  lista.appendChild(novoItem);
+}
+
+// 4 - Remover parágrafo
+function removerParagrafo() {
+  let p = document.getElementById("paragrafoRemover");
+  if (p) p.remove();
+}
+
+// 5 - Personalização
+function personalizar() {
+  let p = document.getElementById("paragrafo");
+  let titulo = document.getElementById("titulo");
+  p.style.color = "blue";
+  p.style.fontSize = "20px";
+  titulo.style.color = "green";
+  titulo.style.fontSize = "35px";
+}
+
+// ----------------------
+// DOM – EVENTOS
+// ----------------------
+
+// 1 - Digitação em tempo real
+document.getElementById("campoTexto").addEventListener("input", function() {
+  document.getElementById("textoDigitado").textContent = this.value;
+});
+
+// 2 - Mouseover
+document.getElementById("botaoMouseOver").addEventListener("mouseover", function() {
+  this.textContent = "Você passou o mouse!";
+});
+
+// 3 - Dblclick
+document.getElementById("botaoEsconder").addEventListener("dblclick", function() {
+  document.getElementById("esconderElemento").style.display = "none";
+});
+
+// 4 - Alterar fonte com tamanho aleatório
+document.getElementById("botaoFonte").addEventListener("click", function() {
+  let tamanho = Math.floor(Math.random() * 31) + 10; // entre 10 e 40
+  document.getElementById("textoFonte").style.fontSize = tamanho + "px";
+});
+</script>
+
+</body>
+</html>
